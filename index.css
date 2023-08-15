@@ -1,0 +1,146 @@
+:root {
+    --color1: #252B48;
+    --color2: #445069;
+    --color3: #5B9A8B;
+    --color4: #F7E987;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main-header {
+    flex: 0 1 auto;
+}
+
+#logo-text {
+    color: var(--color4);
+    text-align: center;
+    margin: 0;
+    background-color: var(--color1);
+    padding: 10px 0;
+}
+
+#main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#thumbnail-list {
+    display: flex;
+    padding: 20px 0px;
+    gap: 10px;
+    order: 2;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    flex: 0 1 auto;
+    justify-content: space-between;
+}
+
+.thumbnail-title {
+    display: block;
+    background-color: var(--color4);
+    margin: 0;
+    padding: 4px 10px;
+    color: var(--color2);
+    font-size: 1.2em;
+    text-shadow: 0 0 3px var(--color1);
+}
+
+a {
+    text-decoration: none;
+}
+
+.thumbnail-item {
+    margin-top: 10px;
+    display: inline-block;
+    max-width: 120px;
+    min-width: 120px;
+    transition: transform 133ms ease-in-out;
+    /* border: 1px solid rgb(100%, 100%, 100%);
+    border: 1px solid rgba(100%, 100%, 100%, 0.8); */
+}
+
+.thumbnail-item :hover {
+    transform: scale(1.2);
+}
+
+.thumbnail-image {
+    display: block;
+    width: 100%;
+}
+
+#detail-image-container {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#detail-image-frame {
+    position: relative;
+    text-align: center;
+    transition: transform 333ms cubic-bezier(1,.06,.28,1);
+}
+
+.is-tiny {
+    transform: scale(0.001);
+    transition: transform 0ms;
+}
+
+#detail-image {
+    width: 70%;
+}
+
+#detail-image-title {
+    position: absolute;
+    bottom: -16px;
+    left: 4px;
+    color: var(--color4);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+}
+
+.hidden-detail #detail-image-container {
+    display: none;
+}
+
+.hidden-detail #thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+    max-width: 80%;
+}
+
+@media all and (min-width: 768px) {
+    #main-content {
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    #thumbnail-list {
+        flex-direction: column;
+        gap: 3px;
+        overflow-y: auto;
+        order: 0;
+        margin-left: 20px;
+        padding: 0 35px;
+    }
+
+    .thumbnail-item {
+        max-width: 250px;
+    }
+}
